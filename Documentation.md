@@ -152,12 +152,12 @@ This procedure will return true if the provided object is a valid dClasses objec
 
 ---
 
-### `[Proc] GetClassRef`
+### `[Proc] GetObjectRef`
 ```
 call : [ElementTag<String>]
 ```
 
-This procedure will return a binary-encoded copy of the dClasses object found at the location provided in the `call` definition. The format for `def.call` in `GetClassRef` will always be as follows:
+This procedure will return a binary-encoded copy of the dClasses object found at the location provided in the `call` definition. The format for `def.call` in `GetObjectRef` will always be as follows:
 
 ```
 <proc[IsInstance].context[<element[[Queue Object].[Object Name]]>]>

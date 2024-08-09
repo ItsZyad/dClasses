@@ -234,7 +234,7 @@ SampleStudent_Class:
                 - define ***age <[age]>
                 - define *school <[school]>
             
-                - define ^allStudents:->:<proc[GetClassRef].context[<queue>|**self]>
+                - define ^allStudents:->:<proc[GetObjectRef].context[<queue>|**self]>
 
             GetGrade:
                 script:
@@ -258,7 +258,7 @@ The `class.attributes` key allows you to define the default value of any global 
 
 To change the value of global attribute you can access it from within any of the class' methods using the `^` (carat) prefix as shown in the example above.
 
-*Note: the `GetClassRef` procedure simply returns a binary representation of the class with the provided name in the provided queue. You can find its full explanation in the documentation.md file.*
+*Note: the `GetObjectRef` procedure simply returns a binary representation of the class with the provided name in the provided queue. You can find its full explanation in the documentation.md file.*
 
 ## Working With Methods
 
@@ -329,7 +329,7 @@ SampleStudent_Class:
                 - define **grade <[grade]>
                 - define *school <[school]>
             
-                - define ^allStudents:->:<proc[GetClassRef].context[<queue>|**self]>
+                - define ^allStudents:->:<proc[GetObjectRef].context[<queue>|**self]>
 
             GetGrade:
                 script:

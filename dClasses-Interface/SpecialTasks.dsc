@@ -37,7 +37,7 @@ IsClass:
     - determine <[decodedObject].get[class].exists>
 
 
-GetClassRef:
+GetObjectRef:
     type: procedure
     definitions: call[ElementTag(String)]|queue[?QueueTag]|object[?ElementTag(String)]
     script:
