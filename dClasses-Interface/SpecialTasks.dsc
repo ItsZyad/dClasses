@@ -1,6 +1,6 @@
 IsInstance:
     type: procedure
-    definitions: call[ElementTag(String)]|queue[?QueueTag]|object[?Union[dClassObject / ElementTag(String)]]|class[ElementTag(String)]
+    definitions: call[ElementTag(String)]|class[ElementTag(String)]|queue[?QueueTag]|object[?Union[dClassObject / ElementTag(String)]]
     script:
     - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
     - define object <[call].split[.].get[2]> if:<[object].exists.not>
