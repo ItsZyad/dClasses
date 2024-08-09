@@ -64,7 +64,7 @@ IsSubClass_DC:
 
     - define classScript <script[<[class]>]>
 
-    - determine <[classScript].data_key[class.extends]>
+    - determine <[classScript].data_key[class.extends].if_null[null]>
 
 
 HasWhichPrefix_DC:
