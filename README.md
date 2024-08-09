@@ -17,6 +17,8 @@ If you need guidance for first-time usage, there is a short beginner's guide bel
 
     As soon as I'm confident that there won't be any changes to dClasses API-side, I will remove this notice.
 
+3. There is currently a quirk in dClasses which can cause two methods with the same name but different access modifiers to be registered as two different methods. This is a known bug and I'll work on it whenever I'm free. It is not recommended to build any important scripts on top of this ""feature"". If you do so, know that it can and will be patched out eventually.
+
 # Beginner's Guide
 
 *Note: This guide will assume that you are familiar with at least the basic terminology surrounding OOP. If you have no idea how OOP works in regular programming languages and the design patterns surrounding it, then I recommend reading/watching a short tutorial on that (Like W3 Schools' Java or Python OOP guides which you can find [\[Here\]](https://www.w3schools.com/java/java_oop.asp) and [\[Here\]](https://www.w3schools.com/python/python_classes.asp) respectively).*
@@ -278,6 +280,8 @@ Finally, to run a method, you can simply use the `Method` script and pass in arg
 
 ---
 **Important Note**
+
+Just to reiterate one of the notices from above--
 
 There is currently a quirk in dClasses which can cause two methods with the same name but different access modifiers to be registered as two different methods. Since this bug does not (to the best of my knowledge) have any _outright_ adverse consequences I have chosen to deprioritize it in favor of fixing other, more pressing, bugs. As long as this notice exists, know that this bug also does.
 
