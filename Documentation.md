@@ -164,3 +164,15 @@ This procedure will return a binary-encoded copy of the dClasses object found at
 ```
 *See the beginner's guide for examples of the `call` argument in use in a regular script.*
 
+---
+
+### `[Task] MakeObjectRef`
+```
+queue      : [QueueTag]
+objectName : [ElementTag<String>]
+object     : [Union[ MapTag / BinaryTag ]]
+```
+
+This task will create a queue-level reference for the provided raw dClassObject provided under the provided name as if it were instantiated by `Object`.
+
+This task is useful for cases where methods need to have a raw dClassObject be passed in.

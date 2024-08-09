@@ -51,3 +51,22 @@ GetObjectRef:
         - determine null
 
     - determine <[queue].flag[dClasses.<[object]>]>
+
+
+MakeObjectRef:
+    type: task
+    definitions: queue[QueueTag]|objectName[ElementTag(String)]|object[Union[BinaryTag / MapTag]]
+    script:
+    - if !<[queue].is_valid>:
+        - stop
+
+    - if <[object].object_type> == Map:
+        - define decodedObject <[object]>
+
+    - else if <[object].object_type> == Binary:
+        - define decodedObject <[object].proc[DecodeClass]>
+
+    - else:
+        - stop
+
+    - flag <[queue]> dClasses.<[objectName]>:<[decodedObject].proc[EncodeClass]>
