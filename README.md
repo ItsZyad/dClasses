@@ -4,7 +4,7 @@
 
 Welcome to dClasses, an attempt to add robust and standardized tools for OOP-style programming to Denizen!
 
-To get started download the code from here (or from dClasses' forum page[insert link]) and drag it into your server's `plugins/Denizen/scripts` folder. It is recommended that you keep dClasses in its own sub-folder inside `scripts/`.
+To get started download the code from here (or from dClasses' [forum page](https://forum.denizenscript.com/resources/dclasses.165/)) and drag the zip into your server's `plugins/Denizen/scripts` folder and unzip it. It is recommended that you keep dClasses in its own sub-folder inside `scripts/`.
 
 If you need guidance for first-time usage, there is a short beginner's guide below. For all further documentation, please check the dedicated Documentation file. Additionally, I've attached a full-fledged sample class that (tries) to take advantage of all the features dClasses has to offer in the `SampleClass.dsc` file.
 
