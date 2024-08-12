@@ -100,18 +100,20 @@ But before you can run the command above you must make sure you've done one more
 
 ## Working With Attributes
 
-Now that we've instantiated the class into our current queue, we can start getting and setting attributes. To do that with public attributes (like in our sample class), we can use the afforementioned `GetAttribute` and `SetAttribute` scripts. For example, if I wanted to have our student graduate to the next grade then I could do something like this:
+Now that you've instantiated the class into the current queue, we can start getting and setting attributes. To do that with public attributes (like in our sample class), you can use the afforementioned `GetAttribute` and `SetAttribute` scripts. For example, if you wanted to have your student graduate to the next grade then you could do something like this:
 
 ```DenizenScript
 - run SetAttribute def.call:<queue>.newStudent.*grade def.value:10
 - run SetAttribute def.call:<queue>.newStudent.*age def.value:15
 ```
 
-Now, you will notice that the syntax for `SetAttribute` is slightly different than that of `Object`. That is because `SetAttribute` utilizes dot-notation to indicate the exact location of the attribute they're trying to manipulate under a definition called `call`. The `call` definition will always follow this exact format:
+Now, you will notice that the syntax for `SetAttribute` is slightly different than that of `Object`. That is because `SetAttribute` utilizes dot-notation to indicate the exact location of the attribute they're trying to manipulate under the definition: `call`. The `call` definition will always follow this exact format:
 
-`def.call:<queue>.[object name].[attribute name]`
+```
+def.call:<queue>.[object name].[attribute name]
+```
 
-`GetAttribute` is a procedure, and so it will be called from the `<proc>` tag, but it follows the exact same format as `SetAttribute`:
+`GetAttribute` is a procedure, and so it is run from the `<proc>` tag, but it follows the exact same format as `SetAttribute`:
 
 ```DenizenScript
 - narrate <proc[GetAttribute].context[<queue>.newStudent.*age]>
@@ -119,7 +121,7 @@ Now, you will notice that the syntax for `SetAttribute` is slightly different th
 
 ### A Little More on Access Modifiers
 
-The class we defined above is consisted solely of public attributes and methods, but what if we wanted to lock access to some attributes such that they can only be freely modified inside the class (or its subclasses). To do that, we use double asterisks for private attributes and triple asterisks for protected attributes;
+The class we defined above is consisted solely of public attributes and methods, but what if we wanted to lock access to some attributes such that they can only be freely modified inside the class (or its subclasses). To do that, you can use double asterisks for private attributes and triple asterisks for protected attributes;
 
 ```DenizenScript
 SampleStudent_Class:
@@ -178,7 +180,7 @@ In this case, there really is no purpose to have the grade attribute set up the 
 
 As already established, if you want to run a method from a class that you just instantiated, all you need to do is call the `Method` task with the name of the object you just created. However, what if you wanted to call a method from inside a class? What name do you use? Well, much like in a language like Python, dClasses has a `self` keyword that is automatically passed into all class methods (although here `self` will act as a private definition as opposed to a keyword).
 
-So if I wanted to run the `SetGrade` method in out example `SampleStudent_Class`, all I would need to do is:
+So if you wanted to run the `SetGrade` method in out example `SampleStudent_Class`, all you would need to do is:
 
 ```DenizenScript
 SampleStudent_Class:
@@ -215,7 +217,7 @@ SampleStudent_Class:
 
 ### Class Attributes
 
-If you've ever worked with Python classes before then you are likely familiar with how class attributes work. While object attributes can differ between different instances of the same class, class attributes can be set in any instance but will have the same value across all instances. If we return the student class example but add the `attributes` key to the class:
+If you've ever worked with Python classes before then you are likely familiar with how class attributes work. While object attributes can differ between different instances of the same class, class attributes can be set in any instance but will have the same value across all instances. If we return the student class example but add the `attributes` key to the class, we get:
 
 ```DenizenScript
 SampleStudent_Class:
@@ -264,7 +266,7 @@ To change the value of global attribute you can access it from within any of the
 
 While this guide has already introduced the basic usage of methods in dClasses - through previous examples showcasing the setters and getters of private and protected attributes - it is still important to go through the inner workings of dClasses methods on their own.
 
-For starters, method access modifiers are slightly different to their attribute counterparts. Since the YAML parser that Denizen uses doesn't like it when keys begin with asterisks, the access modifiers all start with tildes:
+For starters, method access modifiers are slightly different to their attribute counterparts. Since the YAML parser that Denizen uses doesn't like it when keys begin with asterisks, method access modifiers all start with tildes:
 
 `~*`  : Private
 

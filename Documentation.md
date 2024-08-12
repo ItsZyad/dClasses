@@ -124,7 +124,7 @@ Returns the unique hash relevant to the provided dClasses object. By default, th
 
 ## dClasses Special Scripts
 
-dClasses comes built-in with some stand-alone scripts that make the process of OOP in Denizen a bit easier.
+dClasses also comes built-in with some stand-alone scripts that make working the specialized dClasses objects a bit easier.
 
 ---
 
