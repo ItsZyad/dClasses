@@ -81,7 +81,9 @@ Object:
         - define constructorQueue <entry[constructorQueue].created_queue>
         - define constructorDefMap <[constructorQueue].definition_map>
         - define numOfDefs <[classScript].data_key[class.methods.constructor.script].parse_tag[<[parse_value].starts_with[define ].or[<[parse_value].starts_with[definemap ]>]>].count[true].add[<[defs].size>]>
-        - define constructorDefPairList <[constructorDefMap].to_pair_lists.remove[1].to[<[constructorDefMap].to_pair_lists.size.sub[<[numOfDefs]>]>]>
+        - define constructorDefStartIndex <[numOfDefs].sub[<[constructorDefMap].to_pair_lists.size>]>
+        - define constructorDefStartIndex 1 if:<[constructorDefStartIndex].equals[0]>
+        - define constructorDefPairList <[constructorDefMap].to_pair_lists.get[<[constructorDefStartIndex]>].to[last]>
 
         - foreach <[constructorDefPairList]>:
             - if <[value].get[1].starts_with[***]>:
