@@ -39,10 +39,15 @@ IsClass:
 
 GetObjectRef:
     type: procedure
-    definitions: call[ElementTag(String)]|queue[?QueueTag]|object[?ElementTag(String)]
+    definitions: 1[ElementTag(String)]|2[?QueueTag]
     script:
-    - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
-    - define object <[call].split[.].get[2]> if:<[object].exists.not>
+    - if !<[2].exists>:
+        - define queue <[1].split[.].get[1].as[queue]>
+        - define object <[1].split[.].get[2]>
+
+    - else:
+        - define queue <[1]>
+        - define object <[2]>
 
     - if !<[queue].is_valid>:
         - determine null
