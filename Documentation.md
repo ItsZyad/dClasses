@@ -160,7 +160,7 @@ call : [ElementTag<String>]
 This procedure will return a binary-encoded copy of the dClasses object found at the location provided in the `call` definition. The format for `def.call` in `GetObjectRef` will always be as follows:
 
 ```
-<proc[IsInstance].context[<element[[Queue Object].[Object Name]]>]>
+<proc[GetObjectRef].context[<element[[Queue Object].[Object Name]]>]>
 ```
 *See the beginner's guide for examples of the `call` argument in use in a regular script.*
 
