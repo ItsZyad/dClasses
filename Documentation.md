@@ -173,6 +173,6 @@ objectName : [ElementTag<String>]
 object     : [Union[ MapTag / BinaryTag ]]
 ```
 
-This task will create a queue-level reference for the provided raw dClassObject provided under the provided name as if it were instantiated by `Object`.
+This task will create a queue-level reference for the provided raw dClassObject under the given name as if it were instantiated by `Object`.
 
 This task is useful for cases where methods need to have a raw dClassObject be passed in.
