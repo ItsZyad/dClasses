@@ -1,6 +1,6 @@
 # dClasses Documentation
 
-`Current Version: v0.2.0`
+`Current Version: v0.2.1`
 
 dClasses is composed of two components- the `dClasses-Library` (which you do not interact with) and the `dClasses-Interface` (which you do). The interface folder is the core of dClasses, containing all of the scripts that allow you to instantiate, delete, and interact with your dClasses objects. These scripts are listed below:
 
