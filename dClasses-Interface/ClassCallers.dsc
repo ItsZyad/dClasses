@@ -82,7 +82,7 @@ Object:
         - define constructorDefMap <[constructorQueue].definition_map>
         - define numOfDefs <[classScript].data_key[class.methods.constructor.script].parse_tag[<[parse_value].starts_with[define ].or[<[parse_value].starts_with[definemap ]>]>].count[true].add[<[defs].size>]>
         - define constructorDefStartIndex <[numOfDefs].sub[<[constructorDefMap].to_pair_lists.size>]>
-        - define constructorDefStartIndex 1 if:<[constructorDefStartIndex].equals[0]>
+        - define constructorDefStartIndex 1 if:<[constructorDefStartIndex].is[OR_LESS].than[0]>
         - define constructorDefPairList <[constructorDefMap].to_pair_lists.get[<[constructorDefStartIndex]>].to[last]>
 
         - foreach <[constructorDefPairList]>:

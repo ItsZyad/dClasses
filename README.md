@@ -1,6 +1,6 @@
 # dClasses : Object Orientation in Denizen
 
-`Current Version: v0.2.1`
+`Current Version: v0.2.1p1`
 
 Welcome to dClasses, an attempt to add robust and standardized tools for OOP-style programming to Denizen!
 
