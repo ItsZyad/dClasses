@@ -114,6 +114,11 @@ Object:
             - else if <[value].get[1].starts_with[*]>:
                 - define objectMap.attrs.public.list.<[value].get[1]>:<[value].get[2]>
 
+            - else if <[value].get[1].starts_with[^]>:
+                - flag server dClasses.<[class]>.globalAttributes.list.<[value].get[1]>:<[value].get[2]>
+                - define objectMap.classAttrs:->:<[value].get[1]>
+                - define objectMap.classAttrs <[objectMap].get[classAttrs].deduplicate>
+
         - define objectMap.hash:<[objectMap].proc[GenerateUniqueClassHash]>
 
     - flag <[queue]> dClasses.<[object]>:<[objectMap].proc[EncodeClass]>
