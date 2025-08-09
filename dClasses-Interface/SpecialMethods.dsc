@@ -1,5 +1,6 @@
 __delattr:
     type: task
+    debug: false
     definitions: queue[`QueueTag`]|objectName[`ElementTag(String)`]|defMap[`MapTag`]
     script:
     - if <[defMap].size> > 1:
@@ -16,6 +17,7 @@ __delattr:
 
 __eq:
     type: task
+    debug: false
     definitions: queue[`QueueTag`]|decodedObject[`MapTag`]|defMap[`MapTag`]
     script:
     - if <[defMap].size> > 1:
@@ -47,6 +49,7 @@ __eq:
 
 __str:
     type: task
+    debug: false
     definitions: decodedObject[`MapTag`]
     script:
     - determine <element[dClasses object: ]><element[<[decodedObject].proc[EncodeClass].as[element].split[].get[1].to[17].unseparated>... ].color[aqua]><element[[Queue]].color[light_purple].on_hover[<[decodedObject].get[queue].id>]>
@@ -54,6 +57,7 @@ __str:
 
 __len:
     type: task
+    debug: false
     definitions: decodedObject[`MapTag`]
     script:
     - determine <[decodedObject].proc[EncodeClass].length>
@@ -61,6 +65,7 @@ __len:
 
 __hash:
     type: task
+    debug: false
     definitions: decodedObject[`MapTag`]
     script:
     - determine <[decodedObject].get[hash]>
@@ -68,9 +73,7 @@ __hash:
 
 __class:
     type: task
+    debug: false
     definitions: decodedObject[`MapTag`]
     script:
     - determine <[decodedObject].get[class]>
-
-
-# TODO: Add an __iter task

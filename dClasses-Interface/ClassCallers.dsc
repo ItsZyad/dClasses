@@ -2,7 +2,26 @@ Object:
     type: task
     debug: false
     definitions: queue[`QueueTag`]|class[`ElementTag(String)`]|object[`ElementTag(String)`]
+    description:
+    - Instantiates the class with the given name as a dClasses object in the provided queue.
+    - The name provided to the object will be the one referred to it by any other dClasses script in the given queue.
+    - Will return null if the action fails.
+    - ---
+    - → [Void]
+
     script:
+    ## Instantiates the class with the given name as a dClasses object in the provided queue.
+    ## The name provided to the object will be the one referred to it by any other dClasses script
+    ## in the given queue.
+    ##
+    ## Will return null if the action fails.
+    ##
+    ## queue  : [QueueTag]
+    ## class  : [ElementTag(String)]
+    ## object : [ElementTag(String)]
+    ##
+    ## >>> [Void]
+
     - define passedParams <queue.definition_map.exclude[queue|object|class]>
 
     - if !<[queue].is_valid>:
@@ -116,7 +135,34 @@ Method:
     type: task
     debug: false
     definitions: call[`ElementTag(String)`]|queue[`?QueueTag`]|object[`?ElementTag(String)`]|method[`?ElementTag(String)`]
+    description:
+    - Will call the method with the provided name in the provided object.
+    - All of this information is extracted from the `call` definition which must always be formatted as such;
+    - `def.call:[Queue Object].[Object Name].[Method Name]`
+    - Method will also take any number of arguments following `def.call` to satisfy any required definitions that the provided method may have.
+    - Will return null if the action fails.
+    - ---
+    - → [Void]
+
     script:
+    ## Will call the method with the provided name in the provided object.
+    ## All of this information is extracted from the `call` definition which must always be
+    ## formatted as such;
+    ##
+    ## def.call:[Queue Object].[Object Name].[Method Name]
+    ##
+    ## Method will also take any number of arguments following `def.call` to satisfy any required
+    ## definitions that the provided method may have.
+    ##
+    ## Will return null if the action fails.
+    ##
+    ## call   : [ElementTag(String)] <------╮
+    ## queue  : [QueueTag]           \      │--- Mutually Exclusive
+    ## object : [ElementTag(String)]  | <---╯
+    ## method : [ElementTag(String)] /
+    ##
+    ## >>> [Void]
+
     - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
     - define object <[call].split[.].get[2]> if:<[object].exists.not>
     - define method <[call].split[.].get[3]> if:<[method].exists.not>
@@ -189,7 +235,29 @@ GetAttribute:
     type: procedure
     debug: false
     definitions: call[`ElementTag(String)`]|queue[`?QueueTag`]|object[`?ElementTag(String)`]|attribute[`?ElementTag(String)`]
+    description:
+    - Returns the value of a public attribute in an object in a provided queue.
+    - The format for `def.call` in `GetAttribute` will always be as follows;
+    - def.call:[Queue Object].[Object Name].[Attribute Name]
+    - Will return null if the action fails.
+    - ---
+    - → [ObjectTag]
+
     script:
+    ## Returns the value of a public attribute in an object in a provided queue.
+    ## The format for `def.call` in `GetAttribute` will always be as follows;
+    ##
+    ## def.call:[Queue Object].[Object Name].[Attribute Name]
+    ##
+    ## Will return null if the action fails.
+    ##
+    ## call      : [ElementTag(String)] <------╮
+    ## queue     : [QueueTag]           \      │--- Mutually Exclusive
+    ## object    : [ElementTag(String)]  | <---╯
+    ## attribute : [ElementTag(String)] /
+    ##
+    ## >>> [ObjectTag]
+
     - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
     - define object <[call].split[.].get[2]> if:<[object].exists.not>
     - define attribute <[call].split[.].get[3]> if:<[attribute].exists.not>
@@ -237,7 +305,31 @@ SetAttribute:
     type: task
     debug: false
     definitions: call[`ElementTag(String)`]|value[`ObjectTag`]|queue[`?QueueTag`]|object[`?ElementTag(String)`]|attribute[`?ElementTag(String)`]
+    description:
+    - Will set the value of a public attribute in an objcet in a provided queue to the value provided in the `value` definition.
+    - The format for `def.call` in `SetAttribute` will always be as follows;
+    - `def.call:[Queue Object].[Object Name].[Attribute Name]`
+    - Will return null if the action fails.
+    - ---
+    - → [Void]
+
     script:
+    ## Will set the value of a public attribute in an objcet in a provided queue to the value
+    ## provided in the `value` definition. The format for `def.call` in `SetAttribute` will always
+    ## be as follows;
+    ##
+    ## def.call:[Queue Object].[Object Name].[Attribute Name]
+    ##
+    ## Will return null if the action fails.
+    ##
+    ## value     : [ObjectTag]
+    ## call      : [ElementTag(String)] <------╮
+    ## queue     : [QueueTag]           \      │--- Mutually Exclusive
+    ## object    : [ElementTag(String)]  | <---╯
+    ## attribute : [ElementTag(String)] /
+    ##
+    ## >>> [Void]
+
     - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
     - define object <[call].split[.].get[2]> if:<[object].exists.not>
     - define attribute <[call].split[.].get[3]> if:<[attribute].exists.not>
@@ -280,8 +372,32 @@ SetAttribute:
 
 DestroyObject:
     type: task
+    debug: false
     definitions: call[`ElementTag(String)`]|queue[`?QueueTag`]|object[`?ElementTag(String)`]
+    description:
+    - Will delete all references of the object provided in the `call` argument at the queue and server levels.
+    - The format for `def.call` in `DestroyObject` will always be as follows;
+    - `def.call:[Queue Object].[Object Name]`
+    - Will return null if the action fails.
+    - ---
+    - → [Void]
+
     script:
+    ## Will delete all references of the object provided in the `call` argument at the queue and
+    ## server levels.
+    ##
+    ## The format for `def.call` in `DestroyObject` will always be as follows;
+    ##
+    ## def.call:[Queue Object].[Object Name]
+    ##
+    ## Will return null if the action fails.
+    ##
+    ## call      : [ElementTag(String)] <------╮
+    ## queue     : [QueueTag]           \      │--- Mutually Exclusive
+    ## object    : [ElementTag(String)] / <----╯
+    ##
+    ## >>> [Void]
+
     - define queue <[call].split[.].get[1].as[queue]> if:<[queue].exists.not>
     - define object <[call].split[.].get[2]> if:<[object].exists.not>
 
