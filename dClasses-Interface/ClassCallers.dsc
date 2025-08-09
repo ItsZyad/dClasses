@@ -230,7 +230,7 @@ Method:
             - flag server dClasses.<[class]>.globalAttributes.list.<[key]>:<[value]>
             - define decodedObject.classAttrs:->:<[key]>
 
-    - define decodedObject.classAttrs.<[decodedObject].get[classAttrs].deduplicate> if:<[decodedObject].contains[classAttrs]>
+    - define decodedObject.classAttrs:<[decodedObject].get[classAttrs].deduplicate> if:<[decodedObject].contains[classAttrs]>
     - flag <[queue]> dClasses.<[object]>:<[decodedObject].proc[EncodeClass]>
 
     - determine <[methodQueue].determination.get[1].if_null[null]>
