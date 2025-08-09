@@ -412,5 +412,3 @@ DestroyObject:
 
     - if <[queue].has_flag[dClasses.<[object]>]>:
         - flag <[queue]> dClasses.<[object]>:!
-
-    # Yeah... that's it...
